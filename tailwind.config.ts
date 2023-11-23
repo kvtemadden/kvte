@@ -79,6 +79,7 @@ module.exports = {
         kate: "url('/k8.png')",
         ABjob: "url('/AB-Job.png')",
         ABAG: "url('/AB-AG.png')",
+        W2BM: "url('/W2BM.png')",
       },
     },
   },

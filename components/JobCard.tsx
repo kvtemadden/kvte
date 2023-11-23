@@ -17,6 +17,7 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
       description:
         "AdBuilder is a job ad creation tool that uses AI to write job ads. I worked on both the front and back end of the application, using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-ABjob",
+      color: "to-[#3292cf]/90",
     },
     {
       title: "AdGrader",
@@ -25,6 +26,16 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
       description:
         "AdGrader is a tool that grades job adverts for inclusivity and readability. I worked on both the front and back end of the application, using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-ABAG",
+      color: "to-[#ff2779]/90",
+    },
+    {
+      title: "What2Buy.me",
+      company: "Side Project",
+      link: "https://what2buy.me",
+      description:
+        "What2Buy.me is a web app that helps you decide what to buy for your friends and family. I built the app with a friend using TypeScript, Node.js, Next.js and Tailwind.",
+      image: "bg-W2BM",
+      color: "to-[#f45a5a]/90",
     },
   ];
 
@@ -47,7 +58,12 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
               job.image
             )}
           ></div>
-          <div className="absolute top-0 left-0 w-full h-full bg-slate-900/90 flex justify-center items-center flex-col">
+          <div
+            className={clsx(
+              "absolute top-0 left-0 w-full h-full bg-gradient-to-t from-slate-900/90 flex justify-center items-center flex-col",
+              job.color
+            )}
+          >
             {job.title === hoveredJob ? (
               <>
                 <p className="text-white p-5">{job.description}</p>
