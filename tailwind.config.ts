@@ -77,6 +77,7 @@ module.exports = {
       },
       backgroundImage: {
         kate: "url('/k8.png')",
+        duck: "url('/duck.png')",
       },
     },
   },

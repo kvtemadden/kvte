@@ -25,7 +25,7 @@ export const NavBar = () => {
                 <NavigationMenu.Trigger>
                   <NavigationMenu.Link
                     className="hover:text-primary-400"
-                    href="/"
+                    href="/projects"
                   >
                     Projects
                   </NavigationMenu.Link>
@@ -36,7 +36,7 @@ export const NavBar = () => {
                 <NavigationMenu.Trigger>
                   <NavigationMenu.Link
                     className="hover:text-primary-400"
-                    href="/"
+                    href="/contact"
                   >
                     Contact
                   </NavigationMenu.Link>
