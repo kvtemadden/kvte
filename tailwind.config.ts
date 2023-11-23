@@ -77,7 +77,8 @@ module.exports = {
       },
       backgroundImage: {
         kate: "url('/k8.png')",
-        duck: "url('/duck.png')",
+        ABjob: "url('/AB-Job.png')",
+        ABAG: "url('/AB-AG.png')",
       },
     },
   },
