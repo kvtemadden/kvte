@@ -22,7 +22,7 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
     {
       title: "AdGrader",
       company: "AdBuilder",
-      link: "https://adbuilder.ai",
+      link: "https://adgrader.io",
       description:
         "AdGrader is a tool that grades job adverts for inclusivity and readability. I worked on both the front and back end of the application, using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-ABAG",
