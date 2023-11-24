@@ -13,7 +13,7 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
     {
       title: "AdBuilder AI",
       company: "AdBuilder",
-      link: "https://adbuilder.ai",
+      link: "https://adbuilder.io",
       description:
         "AdBuilder is a job ad creation tool that uses AI to write job ads. I worked on both the front and back end of the application, using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-ABjob",
