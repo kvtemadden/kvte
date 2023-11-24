@@ -30,7 +30,9 @@ export const Badges: React.FC = () => {
       delay: "delay-[500ms]",
     },
     {
-      badge: <BiLogoJavascript className="w-8 h-8" title="Javascript" />,
+      badge: (
+        <BiLogoJavascript className="w-8 h-8 rounded-3xl" title="Javascript" />
+      ),
       title: "Javascript",
       delay: "delay-[1000ms]",
     },
