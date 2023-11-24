@@ -57,7 +57,7 @@ export const Badges: React.FC = () => {
   ];
 
   return (
-    <>
+    <div className="h-10">
       <Transition
         className="flex flex-row justify-center py-2 gap-2 transition-all duration-1000 ease-in-out transform"
         show={showBadges}
@@ -79,6 +79,6 @@ export const Badges: React.FC = () => {
           </Transition.Child>
         ))}
       </Transition>
-    </>
+    </div>
   );
 };

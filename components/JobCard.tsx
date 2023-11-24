@@ -40,12 +40,17 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
   ];
 
   return (
-    <div className={clsx("flex flew-row gap-4", className)}>
+    <div
+      className={clsx(
+        "flex flex-col md:flex-row flex-wrap gap-4 items-center justify-center",
+        className
+      )}
+    >
       {jobs.map((job) => (
         <Link
           href={job.link}
           target="_blank"
-          className={clsx("relative w-96 h-96 border-4", {
+          className={clsx("relative w-80 h-80 border-4", {
             "hovered-job": job.title === hoveredJob,
           })}
           key={job.title}

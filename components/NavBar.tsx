@@ -20,29 +20,7 @@ export const NavBar = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-nowrap gap-4 pt-6 pr-2">
-              <NavigationMenu.Item>
-                <NavigationMenu.Trigger>
-                  <NavigationMenu.Link
-                    className="hover:text-primary-400"
-                    href="/projects"
-                  >
-                    Projects
-                  </NavigationMenu.Link>
-                </NavigationMenu.Trigger>
-              </NavigationMenu.Item>
-
-              <NavigationMenu.Item>
-                <NavigationMenu.Trigger>
-                  <NavigationMenu.Link
-                    className="hover:text-primary-400"
-                    href="/contact"
-                  >
-                    Contact
-                  </NavigationMenu.Link>
-                </NavigationMenu.Trigger>
-              </NavigationMenu.Item>
-            </div>
+            <div className="flex flex-nowrap gap-4 pt-6 pr-2"></div>
           </NavigationMenu.List>
         </NavigationMenu.Root>
       </header>
