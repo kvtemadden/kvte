@@ -80,6 +80,8 @@ module.exports = {
         ABjob: "url('/AB-Job.png')",
         ABAG: "url('/AB-AG.png')",
         W2BM: "url('/W2BM.png')",
+        LW: "url('/LW.png')",
+        CBMB: "url('/CBMB.png')",
       },
     },
   },

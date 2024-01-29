@@ -37,6 +37,24 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
       image: "bg-W2BM",
       color: "to-[#f45a5a]/90",
     },
+    {
+      title: "Lakey Wedding",
+      company: "Side Project",
+      link: "https://lakeywedding.com",
+      description:
+        "Lakey Wedding is a website for my wedding. I built the site using TypeScript, Node.js, Next.js and Tailwind.",
+      image: "bg-LW bg-cover bg-center",
+      color: "to-blue-700/90",
+    },
+    {
+      title: "Mailer Builder",
+      company: "Coburg Banks",
+      link: "https://cb-mailer-builder.vercel.app/",
+      description:
+        "Mailer Builder is a tool that allows users to create and send email campaigns. It's a specific build made for Coburg Banks, not a wide-use tool. I built the app using TypeScript, Node.js, Next.js and Tailwind.",
+      image: "bg-CBMB bg-cover bg-center",
+      color: "to-[#a9b012]/90",
+    },
   ];
 
   return (
