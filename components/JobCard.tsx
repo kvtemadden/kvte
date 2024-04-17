@@ -11,6 +11,15 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
 
   const jobs = [
     {
+      title: "Keyte Heats",
+      company: "Keyte Heats",
+      link: "https://heating-xi.vercel.app/",
+      description:
+        "Keyte Heats is a heating company based in Birmingham. I built their website using TypeScript, Node.js, Next.js and Tailwind.",
+      image: "bg-LW bg-cover bg-center",
+      color: "to-blue-700/90",
+    },
+    {
       title: "AdBuilder AI",
       company: "AdBuilder",
       link: "https://adbuilder.io",
@@ -36,15 +45,6 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
         "What2Buy.me is a web app that helps you decide what to buy for your friends and family. I built the app with a friend using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-W2BM",
       color: "to-[#f45a5a]/90",
-    },
-    {
-      title: "Keyte Heats",
-      company: "Keyte Heats",
-      link: "https://heating-xi.vercel.app/",
-      description:
-        "Keyte Heats is a heating company based in Birmingham. I built their website using TypeScript, Node.js, Next.js and Tailwind.",
-      image: "bg-LW bg-cover bg-center",
-      color: "to-blue-700/90",
     },
     {
       title: "Mailer Builder",
