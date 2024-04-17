@@ -1,7 +1,6 @@
 import Layout from "@/app/layout";
 import { Badges } from "@/components/Badges";
 import { JobCard } from "@/components/JobCard";
-import { SocialTag } from "@/components/SocialTag";
 
 export default function Home() {
   return (

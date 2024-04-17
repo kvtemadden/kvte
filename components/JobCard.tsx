@@ -38,11 +38,11 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
       color: "to-[#f45a5a]/90",
     },
     {
-      title: "Lakey Wedding",
-      company: "Side Project",
-      link: "https://lakeywedding.com",
+      title: "Keyte Heats",
+      company: "Keyte Heats",
+      link: "https://heating-xi.vercel.app/",
       description:
-        "Lakey Wedding is a website for my wedding. I built the site using TypeScript, Node.js, Next.js and Tailwind.",
+        "Keyte Heats is a heating company based in Birmingham. I built their website using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-LW bg-cover bg-center",
       color: "to-blue-700/90",
     },
