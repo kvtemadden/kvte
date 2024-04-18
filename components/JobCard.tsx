@@ -16,7 +16,7 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
       link: "https://heating-xi.vercel.app/",
       description:
         "Keyte Heats is a heating company based in Birmingham. I built their website using TypeScript, Node.js, Next.js and Tailwind.",
-      image: "bg-LW bg-cover bg-center",
+      image: "bg-meter bg-cover bg-center",
       color: "to-blue-700/90",
     },
     {
