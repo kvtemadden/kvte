@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <NavBar />
       <SocialTag />
 
-      <main className="grid min-h-screen gap-2 p-10 md:grid-cols-[1fr,70%,1fr]">
+      <main className="grid min-h-screen gap-2 p-10 md:grid-cols-[1fr,80%%,1fr]">
         <div className="flex flex-col text-center col-start-2 items-center">
           {children}
         </div>
