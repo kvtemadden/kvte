@@ -16,7 +16,7 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
       link: "https://kvte-wedding.vercel.app/",
       description:
         "I built a wedding website for my own wedding using TypeScript, Node.js, Next.js and Tailwind.",
-      image: "bg-gray-100",
+      image: "bg-wed bg-cover bg-center",
       color: "to-gray-200/90",
     },
     {
@@ -26,7 +26,16 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
       description:
         "Keyte Heats is a heating company based in Birmingham. I built their website using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-meter bg-cover bg-center",
-      color: "to-blue-700/90",
+      color: "to-blue-900/70",
+    },
+    {
+      title: "Kate Talks Travel",
+      company: "Personal Project",
+      link: "https://katetalkstravel.com/",
+      description:
+        "Kate Talks Travel is a travel blog I built using TypeScript, Node.js, Next.js and Tailwind.",
+      image: "bg-KTT bg-cover bg-center",
+      color: "to-black/80",
     },
     {
       title: "AdBuilder AI",
@@ -60,7 +69,7 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
   return (
     <div
       className={clsx(
-        "flex flex-col md:flex-row flex-wrap gap-4 items-center justify-center",
+        "flex flex-col max-w-6xl md:flex-row flex-wrap gap-4 items-center justify-center",
         className
       )}
     >

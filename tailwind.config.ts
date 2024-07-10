@@ -83,6 +83,8 @@ module.exports = {
         LW: "url('/LW.png')",
         CBMB: "url('/CBMB.png')",
         meter: "url('/meter.jpg')",
+        KTT: "url('/ktt.jpeg')",
+        wed: "url('/wedding.jpg')",
       },
     },
   },
