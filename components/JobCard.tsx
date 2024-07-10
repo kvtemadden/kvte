@@ -11,6 +11,15 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
 
   const jobs = [
     {
+      title: "Wedding Website",
+      company: "Personal Project",
+      link: "https://kvte-wedding.vercel.app/",
+      description:
+        "I built a wedding website for my own wedding using TypeScript, Node.js, Next.js and Tailwind.",
+      image: "bg-gray-100",
+      color: "to-gray-200/90",
+    },
+    {
       title: "Keyte Heats",
       company: "Keyte Heats",
       link: "https://heating-xi.vercel.app/",
@@ -36,15 +45,6 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
         "AdGrader is a tool that grades job adverts for inclusivity and readability. I worked on both the front and back end of the application, using TypeScript, Node.js, Next.js and Tailwind.",
       image: "bg-ABAG",
       color: "to-[#ff2779]/90",
-    },
-    {
-      title: "What2Buy.me",
-      company: "Side Project",
-      link: "https://what2buy.me",
-      description:
-        "What2Buy.me is a web app that helps you decide what to buy for your friends and family. I built the app with a friend using TypeScript, Node.js, Next.js and Tailwind.",
-      image: "bg-W2BM",
-      color: "to-[#f45a5a]/90",
     },
     {
       title: "Mailer Builder",
