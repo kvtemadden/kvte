@@ -68,7 +68,7 @@ export const JobCard: React.FC<JobCardProps> = ({ className }) => {
         <Link
           href={job.link}
           target="_blank"
-          className={clsx("relative w-80 h-80 border-4", {
+          className={clsx("relative w-80 h-80 border-4 rounded", {
             "hovered-job": job.title === hoveredJob,
           })}
           key={job.title}
