@@ -9,7 +9,7 @@ export const SocialTag = () => {
       title: "Github",
     },
     {
-      href: "https://www.linkedin.com/in/kate-madden-703612125/",
+      href: "https://www.linkedin.com/in/kate-lakey-703612125/",
       icon: <Linkedin className="w-5 h-5 text-white hover:text-primary-400" />,
       title: "LinkedIn",
     },
