@@ -6,8 +6,8 @@ import Link from "next/link";
 export const NavBar = () => {
   return (
     <>
-      <header>
-        <NavigationMenu.Root>
+      <header className="fixed top-0 z-50">
+        <NavigationMenu.Root className="sticky top-0 z-50">
           <NavigationMenu.List className="flex text-sm py-6 px-8 justify-between">
             <div className="flex flex-nowrap gap-2">
               <Link href="/">
