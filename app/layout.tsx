@@ -1,8 +1,9 @@
 import { League_Spartan } from "next/font/google";
 
-import { NavBar } from "../components/NavBar";
+import { SocialTag } from "@/components/social-tag";
+import { NavBar } from "@/components/nav-bar";
+
 import "./globals.css";
-import { SocialTag } from "@/components/SocialTag";
 
 const spartan = League_Spartan({ subsets: ["latin"] });
 

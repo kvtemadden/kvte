@@ -1,6 +1,6 @@
 import Layout from "@/app/layout";
-import { Badges } from "@/components/Badges";
-import { JobCard } from "@/components/JobCard";
+import { Badges } from "@/components/badges-v2";
+import { JobCard } from "@/components/job-card";
 
 export default function Home() {
   return (
