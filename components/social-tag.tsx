@@ -21,7 +21,7 @@ export const SocialTag = () => {
   ];
 
   return (
-    <div className="bg-zinc-700 rounded-b fixed right-10 top-0 h-fit w-fit p-2 flex flex-row flex-nowrap gap-2">
+    <div className="bg-zinc-700 rounded-b fixed right-10 top-0 h-fit w-fit p-2 flex flex-row flex-nowrap gap-2 z-50">
       {socials.map(({ href, icon, title }) => (
         <Link href={href} key={title}>
           {icon}

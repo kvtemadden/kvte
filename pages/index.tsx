@@ -1,13 +1,14 @@
 import Layout from "@/app/layout";
-import { Badges } from "@/components/badges-v2";
 import { Hero } from "@/components/hero";
-import { JobCard } from "@/components/job-card";
+import { WorkCards } from "@/components/work-cards";
+import { WorkScrollSection } from "@/components/work-scroll-section";
 
 export default function Home() {
   return (
     <>
       <Layout>
         <Hero />
+        <WorkCards />
       </Layout>
     </>
   );

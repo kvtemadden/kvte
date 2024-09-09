@@ -9,59 +9,71 @@ const content = [
   {
     title: "Kate Talks Travel",
     description:
-      "Kate Talks Travel is a travel blog I built using TypeScript, Next.js and Tailwind.",
+      "I built Kate Talks Travel, a fun travel blog using TypeScript, Next.js, and Tailwind CSS. I hooked it up with Sanity.io for easy content management and deployed it on Vercel to keep things fast and smooth. I wanted a way to document my travels whilst also building a community around my adventures. This is the result.",
     content: (
       <div className="h-full w-full  flex items-center justify-center text-white">
         <Image
-          src="/ktt.jpeg"
+          src="/ktt.png"
           width={300}
-          height={300}
-          className="h-full w-full object-cover"
+          height={200}
+          className="h-full w-full object-contain"
           alt="Kate Talks Travel website"
         />
       </div>
     ),
   },
   {
-    title: "Real time changes",
+    title: "Keyte Heats",
     description:
-      "See changes as they happen. With our platform, you can track every modification in real time. No more confusion about the latest version of your project. Say goodbye to the chaos of version control and embrace the simplicity of real-time updates.",
+      "Keyte Heats is a heating company based in Birmingham. I built their website using TypeScript, Next.js, and Tailwind CSS. I used Framer Motion for the animations and Tailwind CSS for the design. The website is responsive and adapts to different screen sizes, ensuring a seamless user experience on all devices.",
     content: (
-      <div className="h-full w-full  flex items-center justify-center text-white">
+      <div className="h-full w-full flex items-center justify-center text-white">
         <Image
-          src="/linear.webp"
+          src="/keyte-heats.png"
           width={300}
-          height={300}
-          className="h-full w-full object-cover"
-          alt="linear board demo"
+          height={200}
+          className="h-full w-full object-contain"
+          alt="Keyte Heats website"
         />
       </div>
     ),
   },
   {
-    title: "Version control",
+    title: "CB Mailer Builder",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "I created Mailer Builder for Coburg Banks as an internal tool. It's a straightforward app that helps build the HTML structure for emails. I built it using TypeScript, Next.js, and Tailwind CSS to keep things clean and efficient.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--orange-500),var(--yellow-500))] flex items-center justify-center text-white">
-        Version control
+      <div className="h-full w-full flex items-center justify-center text-white">
+        <Image
+          src="/cbm.png"
+          width={300}
+          height={200}
+          className="h-full w-full object-contain"
+          alt="CB Mailer Builder website"
+        />
       </div>
     ),
   },
   {
-    title: "Running out of content",
+    title: "Wedding Website",
     description:
-      "Experience real-time updates and never stress about version control again. Our platform ensures that you're always working on the most recent version of your project, eliminating the need for constant manual updates. Stay in the loop, keep your team aligned, and maintain the flow of your work without any interruptions.",
+      "I built a wedding website for my own wedding using TypeScript, Next.js and Tailwind. Since adding it to my portfolio, I've amended the site to remove the personal touch and focus on showcasing the wedding itself. The website is responsive and adapts to different screen sizes, ensuring a seamless user experience on all devices.",
     content: (
-      <div className="h-full w-full bg-[linear-gradient(to_bottom_right,var(--cyan-500),var(--emerald-500))] flex items-center justify-center text-white">
-        Running out of content
+      <div className="h-full w-full flex items-center justify-center text-white">
+        <Image
+          src="/wedding.png"
+          width={300}
+          height={200}
+          className="h-full w-full object-contain"
+          alt="Wedding website"
+        />
       </div>
     ),
   },
 ];
-export function StickyScrollRevealDemo() {
+export function WorkScrollSection() {
   return (
-    <div className="p-10">
+    <div className="w-full min-h-screen">
       <StickyScroll content={content} />
     </div>
   );
