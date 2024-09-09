@@ -25,7 +25,7 @@ const data = [
     src: "/ktt.jpeg",
     content: (
       <>
-        <p className="max-w-[500px] mx-auto pb-8 opacity-80 tracking-tight font-light">
+        <p className="max-w-[500px] mx-auto pb-8 opacity-80  font-light">
           I built Kate Talks Travel, a fun travel blog using TypeScript,
           Next.js, and Tailwind CSS. I hooked it up with Sanity.io for easy
           content management and deployed it on Vercel to keep things fast and
@@ -50,7 +50,7 @@ const data = [
     src: "/meter.jpg",
     content: (
       <>
-        <p className="max-w-[500px] mx-auto pb-8 opacity-80 tracking-tight font-light">
+        <p className="max-w-[500px] mx-auto pb-8 opacity-80  font-light">
           Keyte Heats is a heating company based in Birmingham. I built their
           website using TypeScript, Next.js, and Tailwind CSS. I used Framer
           Motion for the animations and Tailwind CSS for the design. The website
@@ -75,7 +75,7 @@ const data = [
     src: "/wedding.jpg",
     content: (
       <>
-        <p className="max-w-[500px] mx-auto pb-8 opacity-80 tracking-tight font-light">
+        <p className="max-w-[500px] mx-auto pb-8 opacity-80  font-light">
           I built a wedding website for my own wedding using TypeScript, Next.js
           and Tailwind. Since adding it to my portfolio, I&apos;ve amended the
           site to remove the personal touch and focus on showcasing the wedding
@@ -101,7 +101,7 @@ const data = [
     src: "/email.jpg",
     content: (
       <>
-        <p className="max-w-[500px] mx-auto pb-8 opacity-80 tracking-tight font-light">
+        <p className="max-w-[500px] mx-auto pb-8 opacity-80  font-light">
           I created Mailer Builder for Coburg Banks as an internal tool. It's a
           straightforward app that helps build the HTML structure for emails. I
           built it using TypeScript, Next.js, and Tailwind CSS to keep things
