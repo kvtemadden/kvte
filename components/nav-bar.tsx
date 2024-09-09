@@ -6,9 +6,9 @@ import Link from "next/link";
 export const NavBar = () => {
   return (
     <>
-      <header className="fixed top-0 z-50">
+      <header className="fixed top-0 z-50 scale-75 md:scale-100">
         <NavigationMenu.Root className="sticky top-0 z-50">
-          <NavigationMenu.List className="flex text-sm py-6 px-8 justify-between">
+          <NavigationMenu.List className="flex text-sm py-2 md:py-6 md:px-8 justify-between">
             <div className="flex flex-nowrap gap-2">
               <Link href="/">
                 <div className="bg-kate bg-primary-500 h-20 w-20 bg-[length:154px_225px] bg-[position:52%_5%] rounded-full"></div>
