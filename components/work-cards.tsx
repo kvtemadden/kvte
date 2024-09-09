@@ -102,10 +102,10 @@ const data = [
     content: (
       <>
         <p className="max-w-[500px] mx-auto pb-8 opacity-80  font-light">
-          I created Mailer Builder for Coburg Banks as an internal tool. It's a
-          straightforward app that helps build the HTML structure for emails. I
-          built it using TypeScript, Next.js, and Tailwind CSS to keep things
-          clean and efficient.
+          I created Mailer Builder for Coburg Banks as an internal tool.
+          It&apos;s a straightforward app that helps build the HTML structure
+          for emails. I built it using TypeScript, Next.js, and Tailwind CSS to
+          keep things clean and efficient.
         </p>
         <div className="w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
           <Image
