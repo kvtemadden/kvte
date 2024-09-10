@@ -32,7 +32,7 @@ const data = [
           smooth. I wanted a way to document my travels whilst also building a
           community around my adventures. This is the result.
         </p>
-        <div className="w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
+        <div className="max-w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
           <Image
             src="/ktt-preview.png"
             width={300}
@@ -57,7 +57,7 @@ const data = [
           is responsive and adapts to different screen sizes, ensuring a
           seamless user experience on all devices.
         </p>
-        <div className="w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
+        <div className="max-w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
           <Image
             src="/kh-preview.png"
             width={300}
@@ -82,7 +82,7 @@ const data = [
           itself. The website is responsive and adapts to different screen
           sizes, ensuring a seamless user experience on all devices.
         </p>
-        <div className="w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
+        <div className="max-w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
           <Image
             src="/wed-preview.png"
             width={300}
@@ -107,7 +107,7 @@ const data = [
           for emails. I built it using TypeScript, Next.js, and Tailwind CSS to
           keep things clean and efficient.
         </p>
-        <div className="w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
+        <div className="max-w-[500px] mx-auto rounded-md overflow-hidden flex items-center justify-center text-white">
           <Image
             src="/mailer-preview.png"
             width={300}
