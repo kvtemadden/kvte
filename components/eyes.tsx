@@ -1,16 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 
 export const Eyes = () => {
-  const eye = useRef<HTMLDivElement>(null);
+  const eyeL = useRef<HTMLDivElement>(null);
+  const eyeR = useRef<HTMLDivElement>(null);
 
   const eyePosition = (e: MouseEvent) => {
-    if (!eye.current) return;
+    [eyeL, eyeR].forEach((eye) => {
+      if (!eye.current) return;
 
-    const x = eye.current.offsetLeft + eye.current.offsetWidth / 2;
-    const y = eye.current.offsetTop + eye.current.offsetHeight / 2;
-    const rad = Math.atan2(e.clientX - x, e.clientY - y);
-    const rot = rad * (180 / Math.PI) * -1 + 210;
-    eye.current.style.transform = `rotate(${rot}deg)`;
+      const x = eye.current.offsetLeft + eye.current.offsetWidth / 2;
+      const y = eye.current.offsetTop + eye.current.offsetHeight / 2;
+      const rad = Math.atan2(e.clientX - x, e.clientY - y);
+      const rot = rad * (180 / Math.PI) * -1 + 220;
+      eye.current.style.transform = `rotate(${rot}deg)`;
+    });
   };
 
   useEffect(() => {
@@ -22,9 +25,15 @@ export const Eyes = () => {
   }, []);
 
   return (
-    <div
-      ref={eye}
-      className="bg-white rounded-full h-10 w-10 relative after:absolute after:rounded-full after:bg-black after:border-white after:border after:top-1 after:left-1 after:h-4 after:w-4"
-    ></div>
+    <div className="flex flex-row gap-1">
+      <div
+        ref={eyeL}
+        className="bg-white rounded-full h-10 w-10 relative after:border-primary after:absolute after:rounded-full after:bg-black after:border-4 after:top-1.5 after:left-1 after:h-4 after:w-4"
+      />
+      <div
+        ref={eyeR}
+        className="bg-white rounded-full h-10 w-10 relative after:border-primary after:absolute after:rounded-full after:bg-black after:border-4 after:top-1.5 after:left-1 after:h-4 after:w-4"
+      />
+    </div>
   );
 };
