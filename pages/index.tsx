@@ -1,7 +1,8 @@
 import Layout from "@/app/layout";
 import { Hero } from "@/components/hero";
+import timelineData from "@/components/lib/constants";
+import { Timeline } from "@/components/timeline";
 import { WorkCards } from "@/components/work-cards";
-import { WorkScrollSection } from "@/components/work-scroll-section";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Layout>
         <Hero />
         <WorkCards />
+        <Timeline points={timelineData} />
       </Layout>
     </>
   );
