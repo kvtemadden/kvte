@@ -60,7 +60,10 @@ export const Badges: React.FC = () => {
 
   return (
     <div className="h-10">
-      <Transition className=" dark:text-white" show={showBadges}>
+      <Transition
+        className="flex flex-row justify-center py-2 gap-2 transition-all duration-1000 ease-in-out transform dark:text-white"
+        show={showBadges}
+      >
         {badges.map((badge, index) => (
           <Transition.Child
             key={index}
