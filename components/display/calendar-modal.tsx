@@ -140,7 +140,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({}) => {
               />
             </div>
 
-            <div className="col-span-12 sm:col-span-9 sm:col-start-4 grid grid-cols-5 items-center justify-center border-t p-4 w-full">
+            <div className="col-span-12 sm:col-span-9 sm:col-start-4 grid grid-cols-5 items-center justify-center border-t p-4 w-full gap-2">
               <div className="col-span-2 flex items-center justify-center">
                 <Input
                   type="date"
@@ -163,6 +163,32 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({}) => {
                   className="w-full"
                   placeholder="End date"
                 />
+              </div>
+              {/* Warning text below inputs */}
+              <div className="col-span-5 text-center">
+                {(() => {
+                  const startDate = startInput
+                    ? new Date(startInput)
+                    : undefined;
+                  const endDate = endInput ? new Date(endInput) : undefined;
+                  if (startDate && endDate) {
+                    if (startDate > endDate) {
+                      return (
+                        <span className="text-red-500 text-sm">
+                          Start date cannot be after end date.
+                        </span>
+                      );
+                    }
+                    if (endDate < startDate) {
+                      return (
+                        <span className="text-red-500 text-sm">
+                          End date cannot be before start date.
+                        </span>
+                      );
+                    }
+                  }
+                  return null;
+                })()}
               </div>
             </div>
           </div>
