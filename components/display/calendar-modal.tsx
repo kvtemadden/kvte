@@ -1,5 +1,5 @@
 import { Calendar } from "@/components/ui/calendar";
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
@@ -18,6 +18,36 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
   const [date, setDate] = useState<{ from?: Date; to?: Date } | undefined>(
     undefined
   );
+  // For input boxes
+  const [startInput, setStartInput] = useState("");
+  const [endInput, setEndInput] = useState("");
+
+  // Format date to yyyy-mm-dd for input[type=date]
+  const formatDateInput = (d?: Date) =>
+    d
+      ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(
+          2,
+          "0"
+        )}-${String(d.getDate()).padStart(2, "0")}`
+      : "";
+
+  // Sync input boxes when date changes
+  React.useEffect(() => {
+    setStartInput(formatDateInput(date?.from));
+    setEndInput(formatDateInput(date?.to));
+  }, [date]);
+
+  // When input changes, update date state
+  const handleStartChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setStartInput(e.target.value);
+    const newFrom = e.target.value ? new Date(e.target.value) : undefined;
+    setDate((prev) => ({ from: newFrom, to: prev?.to }));
+  };
+  const handleEndChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEndInput(e.target.value);
+    const newTo = e.target.value ? new Date(e.target.value) : undefined;
+    setDate((prev) => ({ from: prev?.from, to: newTo }));
+  };
 
   return (
     <>
@@ -67,7 +97,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                   }}
                   size="sm"
                 >
-                  {TimePeriodMapper[period]}
+                  {TimePeriodMapper[period as keyof typeof TimePeriodMapper]}
                 </Button>
               ))}
             </div>
@@ -76,7 +106,11 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
               <Calendar
                 mode="range"
                 captionLayout="dropdown"
-                selected={date}
+                selected={
+                  date && date.from
+                    ? { from: date.from, to: date.to }
+                    : undefined
+                }
                 onSelect={setDate}
                 className="rounded-lg border"
                 fixedWeeks
@@ -91,12 +125,30 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
               />
             </div>
 
-            <div className="col-span-9 col-start-4 flex flex-row gap-3 items-center border-t p-4">
-              <Input placeholder="Search" />
+            <div className="col-span-9 col-start-4 grid grid-cols-5 items-center justify-center border-t p-4 w-full">
+              <div className="col-span-2 flex items-center justify-center">
+                <Input
+                  type="date"
+                  value={startInput}
+                  onChange={handleStartChange}
+                  className="w-26"
+                  placeholder="Start date"
+                />
+              </div>
 
-              <ArrowRightIcon className="w-8 h-8" />
+              <div className="col-span-1 flex items-center justify-center">
+                <ArrowRightIcon size={16} />
+              </div>
 
-              <Input placeholder="Search" />
+              <div className="col-span-2 flex items-center justify-center">
+                <Input
+                  type="date"
+                  value={endInput}
+                  onChange={handleEndChange}
+                  className="w-26"
+                  placeholder="End date"
+                />
+              </div>
             </div>
           </div>
         </DialogContent>
