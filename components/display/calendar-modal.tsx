@@ -138,6 +138,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                 onSelect={setDate}
                 month={month}
                 onMonthChange={setMonth}
+                endMonth={new Date()}
                 className="rounded-lg border"
                 fixedWeeks
                 numberOfMonths={2}
@@ -146,7 +147,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                 showOutsideDays={false}
                 broadcastCalendar
                 classNames={{
-                  root: "border-none w-full ",
+                  root: "border-none w-full",
                 }}
               />
             </div>
