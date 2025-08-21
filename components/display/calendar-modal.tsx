@@ -95,29 +95,41 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
           <div className="grid grid-cols-12 min-h-fit min-w-fit grow">
             <div className="flex flex-col h-full col-span-3 gap-2 border-r px-4 row-span-2 py-4">
               {/* create button per time period */}
-              {Object.keys(TimePeriodMapper).map((period) => (
-                <Button
-                  key={period}
-                  variant="outline"
-                  className="w-full font-normal"
-                  onClick={() => {
-                    const range = getPeriodRange(
-                      period as keyof typeof TimePeriodMapper
-                    );
-                    setDate(range);
-                    if (range.from) setMonth(new Date(range.from));
-                  }}
-                  size="sm"
-                >
-                  {TimePeriodMapper[period as keyof typeof TimePeriodMapper]}
-                </Button>
-              ))}
+              {Object.keys(TimePeriodMapper).map((period) =>
+                (() => {
+                  const range = getPeriodRange(
+                    period as keyof typeof TimePeriodMapper
+                  );
+                  const isSelected =
+                    date?.from?.toDateString() === range.from.toDateString() &&
+                    date?.to?.toDateString() === range.to.toDateString();
+                  return (
+                    <Button
+                      key={period}
+                      variant={isSelected ? "default" : "outline"}
+                      className={`w-full font-normal ${
+                        isSelected ? "bg-primary text-primary-foreground" : ""
+                      }`}
+                      onClick={() => {
+                        setDate(range);
+                        if (range.from) setMonth(new Date(range.from));
+                      }}
+                      size="sm"
+                    >
+                      {
+                        TimePeriodMapper[
+                          period as keyof typeof TimePeriodMapper
+                        ]
+                      }
+                    </Button>
+                  );
+                })()
+              )}
             </div>
 
             <div className="flex w-full items-center justify-center p-4 col-span-9">
               <Calendar
                 mode="range"
-                captionLayout="dropdown"
                 selected={
                   date && date.from
                     ? { from: date.from, to: date.to }
