@@ -1,5 +1,5 @@
 import { Calendar } from "@/components/ui/calendar";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
@@ -22,7 +22,15 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
   // For input boxes
   const [startInput, setStartInput] = useState("");
   const [endInput, setEndInput] = useState("");
+  const [isMobile, setIsMobile] = React.useState(false);
   const inputChangeRef = React.useRef(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Format date to yyyy-mm-dd for input[type=date]
   const formatDateInput = (d?: Date) =>
@@ -59,14 +67,6 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
 
   return (
     <>
-      {/* <Button
-        onClick={() => {
-          setShow((prev) => !prev);
-        }}
-      >
-        {show ? "Hide" : "Show"}
-      </Button> */}
-
       <Dialog>
         <DialogTrigger asChild>
           <Button variant="outline">
@@ -89,11 +89,11 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
         </DialogTrigger>
 
         <DialogContent
-          className="min-w-fit min-h-fit flex items-center justify-center [&>button:first-of-type]:hidden p-0"
-          style={{ maxWidth: "700px", overflow: "auto" }}
+          className="max-w-[95%] md:max-w-[700px] min-w-fit min-h-fit flex items-center justify-center [&>button:first-of-type]:hidden p-0"
+          style={{ overflow: "auto" }}
         >
           <div className="grid grid-cols-12 min-h-fit min-w-fit grow">
-            <div className="flex flex-col h-full col-span-3 gap-2 border-r px-4 row-span-2 py-4">
+            <div className="hidden sm:flex flex-col h-full col-span-3 gap-2 border-r px-4 row-span-2 py-4">
               {/* create button per time period */}
               {Object.keys(TimePeriodMapper).map((period) =>
                 (() => {
@@ -127,7 +127,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
               )}
             </div>
 
-            <div className="flex w-full items-center justify-center p-4 col-span-9">
+            <div className="flex w-full items-center justify-center p-4 col-span-12 sm:col-span-9">
               <Calendar
                 mode="range"
                 selected={
@@ -141,9 +141,9 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                 endMonth={new Date()}
                 className="rounded-lg border"
                 fixedWeeks
-                numberOfMonths={2}
+                captionLayout={isMobile ? "dropdown" : "label"}
+                numberOfMonths={isMobile ? 1 : 2}
                 pagedNavigation
-                navLayout="after"
                 showOutsideDays={false}
                 broadcastCalendar
                 classNames={{
@@ -152,13 +152,13 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
               />
             </div>
 
-            <div className="col-span-9 col-start-4 grid grid-cols-5 items-center justify-center border-t p-4 w-full">
+            <div className="col-span-12 sm:col-span-9 sm:col-start-4 grid grid-cols-5 items-center justify-center border-t p-4 w-full">
               <div className="col-span-2 flex items-center justify-center">
                 <Input
                   type="date"
                   value={startInput}
                   onChange={handleStartChange}
-                  className="w-26"
+                  className="w-full"
                   placeholder="Start date"
                 />
               </div>
@@ -172,7 +172,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                   type="date"
                   value={endInput}
                   onChange={handleEndChange}
-                  className="w-26"
+                  className="w-full"
                   placeholder="End date"
                 />
               </div>
