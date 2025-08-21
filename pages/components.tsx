@@ -10,11 +10,11 @@ const Page = () => {
   return (
     <Layout>
       <div className="h-48 w-full" />
-      <main className="flex min-h-screen items-start justify-start w-full px-20">
+      <main className="flex items-start justify-center w-full px-20 gap-8 flex-wrap">
         {components.map((Comp, idx) => (
           <Card
             key={idx}
-            className="h-80 w-80 flex items-center justify-center"
+            className="h-80 w-80 flex items-center justify-center shrink-0"
           >
             <CardContent className="p-0">
               <Comp />

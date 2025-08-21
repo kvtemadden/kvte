@@ -5,21 +5,13 @@ import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
 import { Input } from "../ui/input";
 import { ArrowRightIcon } from "lucide-react";
 
-interface CalendarModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+interface CalendarModalProps {}
 
-export const CalendarModal: React.FC<CalendarModalProps> = ({
-  isOpen = false,
-  onClose,
-}) => {
-  const [show, setShow] = useState(isOpen);
+export const CalendarModal: React.FC<CalendarModalProps> = ({}) => {
   const [date, setDate] = useState<{ from?: Date; to?: Date } | undefined>(
     undefined
   );
   const [month, setMonth] = useState<Date | undefined>(undefined);
-  // For input boxes
   const [startInput, setStartInput] = useState("");
   const [endInput, setEndInput] = useState("");
   const [isMobile, setIsMobile] = React.useState(false);
@@ -32,7 +24,6 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // Format date to yyyy-mm-dd for input[type=date]
   const formatDateInput = (d?: Date) =>
     d
       ? `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(
@@ -41,8 +32,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
         )}-${String(d.getDate()).padStart(2, "0")}`
       : "";
 
-  // Sync input boxes when date changes, but not if change originated from input
-  React.useEffect(() => {
+  useEffect(() => {
     if (!inputChangeRef.current) {
       setStartInput(formatDateInput(date?.from));
       setEndInput(formatDateInput(date?.to));
@@ -50,7 +40,6 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
     inputChangeRef.current = false;
   }, [date]);
 
-  // When input changes, update date state and set flag
   const handleStartChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     inputChangeRef.current = true;
     setStartInput(e.target.value);
@@ -94,7 +83,6 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
         >
           <div className="grid grid-cols-12 min-h-fit min-w-fit grow">
             <div className="hidden sm:flex flex-col h-full col-span-3 gap-2 border-r px-4 row-span-2 py-4">
-              {/* create button per time period */}
               {Object.keys(TimePeriodMapper).map((period) =>
                 (() => {
                   const range = getPeriodRange(
@@ -193,7 +181,6 @@ const TimePeriodMapper = {
   lastYear: "Last year",
 };
 
-// Helper to get date range for each period
 const getPeriodRange = (period: keyof typeof TimePeriodMapper) => {
   const today = new Date();
   let from: Date, to: Date;
