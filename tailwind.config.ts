@@ -31,7 +31,6 @@ module.exports = {
           900: "#EFFBFC",
         },
         secondary: {
-          DEFAULT: "#EE4540",
           foreground: "hsl(var(--secondary-foreground))",
           // https://hihayk.github.io/scale/#4/5/40/92/-12/4/19/14/EE4540/238/69/64/white
           50: "#963A1F",
@@ -70,6 +69,13 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        chart: {
+          "1": "hsl(var(--chart-1))",
+          "2": "hsl(var(--chart-2))",
+          "3": "hsl(var(--chart-3))",
+          "4": "hsl(var(--chart-4))",
+          "5": "hsl(var(--chart-5))",
+        },
       },
       maxWidth: {
         "1/2": "50%",
@@ -79,7 +85,7 @@ module.exports = {
         "3/4": "75%",
       },
       spacing: {
-        26: "6.5rem",
+        "26": "6.5rem",
       },
       backgroundImage: {
         kate: "url('/k8.png')",
@@ -92,9 +98,14 @@ module.exports = {
         KTT: "url('/ktt.jpeg')",
         wed: "url('/wedding.jpg')",
       },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
     },
   },
-  plugins: [addVariablesForColors],
+  plugins: [addVariablesForColors, require("tailwindcss-animate")],
 };
 
 function addVariablesForColors({ addBase, theme }: any) {
