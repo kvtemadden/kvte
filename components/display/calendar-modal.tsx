@@ -22,6 +22,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
   // For input boxes
   const [startInput, setStartInput] = useState("");
   const [endInput, setEndInput] = useState("");
+  const inputChangeRef = React.useRef(false);
 
   // Format date to yyyy-mm-dd for input[type=date]
   const formatDateInput = (d?: Date) =>
@@ -32,19 +33,25 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
         )}-${String(d.getDate()).padStart(2, "0")}`
       : "";
 
-  // Sync input boxes when date changes
+  // Sync input boxes when date changes, but not if change originated from input
   React.useEffect(() => {
-    setStartInput(formatDateInput(date?.from));
-    setEndInput(formatDateInput(date?.to));
+    if (!inputChangeRef.current) {
+      setStartInput(formatDateInput(date?.from));
+      setEndInput(formatDateInput(date?.to));
+    }
+    inputChangeRef.current = false;
   }, [date]);
 
-  // When input changes, update date state
+  // When input changes, update date state and set flag
   const handleStartChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    inputChangeRef.current = true;
     setStartInput(e.target.value);
     const newFrom = e.target.value ? new Date(e.target.value) : undefined;
     setDate((prev) => ({ from: newFrom, to: prev?.to }));
+    if (newFrom) setMonth(newFrom);
   };
   const handleEndChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    inputChangeRef.current = true;
     setEndInput(e.target.value);
     const newTo = e.target.value ? new Date(e.target.value) : undefined;
     setDate((prev) => ({ from: prev?.from, to: newTo }));
@@ -165,6 +172,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
 };
 
 const TimePeriodMapper = {
+  today: "Today",
   last7days: "Last 7 days",
   last30days: "Last 30 days",
   last90days: "Last 90 days",
@@ -177,6 +185,10 @@ const getPeriodRange = (period: keyof typeof TimePeriodMapper) => {
   const today = new Date();
   let from: Date, to: Date;
   switch (period) {
+    case "today":
+      from = today;
+      to = today;
+      break;
     case "last7days":
       to = today;
       from = new Date();
@@ -193,7 +205,6 @@ const getPeriodRange = (period: keyof typeof TimePeriodMapper) => {
       from.setDate(to.getDate() - 89);
       break;
     case "lastQuarter": {
-      // Get previous quarter
       const currentMonth = today.getMonth();
       const currentYear = today.getFullYear();
       const quarter = Math.floor(currentMonth / 3);
