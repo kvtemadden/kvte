@@ -18,6 +18,7 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
   const [date, setDate] = useState<{ from?: Date; to?: Date } | undefined>(
     undefined
   );
+  const [month, setMonth] = useState<Date | undefined>(undefined);
   // For input boxes
   const [startInput, setStartInput] = useState("");
   const [endInput, setEndInput] = useState("");
@@ -93,7 +94,11 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                   variant="outline"
                   className="w-full font-normal"
                   onClick={() => {
-                    setDate({ from: new Date(), to: new Date() });
+                    const range = getPeriodRange(
+                      period as keyof typeof TimePeriodMapper
+                    );
+                    setDate(range);
+                    if (range.from) setMonth(new Date(range.from));
                   }}
                   size="sm"
                 >
@@ -112,6 +117,8 @@ export const CalendarModal: React.FC<CalendarModalProps> = ({
                     : undefined
                 }
                 onSelect={setDate}
+                month={month}
+                onMonthChange={setMonth}
                 className="rounded-lg border"
                 fixedWeeks
                 numberOfMonths={2}
@@ -163,4 +170,49 @@ const TimePeriodMapper = {
   last90days: "Last 90 days",
   lastQuarter: "Last quarter",
   lastYear: "Last year",
+};
+
+// Helper to get date range for each period
+const getPeriodRange = (period: keyof typeof TimePeriodMapper) => {
+  const today = new Date();
+  let from: Date, to: Date;
+  switch (period) {
+    case "last7days":
+      to = today;
+      from = new Date();
+      from.setDate(to.getDate() - 6);
+      break;
+    case "last30days":
+      to = today;
+      from = new Date();
+      from.setDate(to.getDate() - 29);
+      break;
+    case "last90days":
+      to = today;
+      from = new Date();
+      from.setDate(to.getDate() - 89);
+      break;
+    case "lastQuarter": {
+      // Get previous quarter
+      const currentMonth = today.getMonth();
+      const currentYear = today.getFullYear();
+      const quarter = Math.floor(currentMonth / 3);
+      let startMonth = (quarter - 1) * 3;
+      let year = currentYear;
+      if (startMonth < 0) {
+        startMonth += 12;
+        year -= 1;
+      }
+      from = new Date(year, startMonth, 1);
+      to = new Date(year, startMonth + 3, 0); // last day of previous quarter
+      break;
+    }
+    case "lastYear":
+      from = new Date(today.getFullYear() - 1, 0, 1);
+      to = new Date(today.getFullYear() - 1, 11, 31);
+      break;
+    default:
+      from = to = today;
+  }
+  return { from, to };
 };
